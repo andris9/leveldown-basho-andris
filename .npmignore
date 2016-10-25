@@ -3,7 +3,7 @@ build/
 build-pre-gyp/
 test-data.tar
 test-data.db.tar
-deps/leveldb/leveldb-basho/
+deps/leveldb/leveldb-1.19/
 deps/leveldb/leveldb-hyper/
 deps/leveldb/leveldb-rocksdb/
 deps/snappy/snappy-1.1.1/testdata/
