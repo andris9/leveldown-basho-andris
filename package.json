@@ -21,7 +21,7 @@
     "type": "git",
     "url": "https://github.com/andris9/leveldown-basho-andris.git"
   },
-  "homepage": "https://github.com/level/leveldown-basho-andris",
+  "homepage": "https://github.com/andris9/leveldown-basho-andris",
   "keywords": [
     "leveldb",
     "level"
