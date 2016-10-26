@@ -179,6 +179,7 @@
       , 'leveldb-<(ldbversion)/leveldb_os/hot_backup_stub.cc'
       , 'leveldb-<(ldbversion)/leveldb_os/warming_stub.cc'
       , 'leveldb-<(ldbversion)/leveldb_os/expiry_os.cc'
+      , 'leveldb-<(ldbversion)/util/lz4.c'
       , 'leveldb-<(ldbversion)/util/throttle.cc'
    ]
 }]}

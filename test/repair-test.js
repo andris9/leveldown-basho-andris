@@ -40,12 +40,14 @@ makeTest('test repair() compacts', function (db, t, done, location) {
   db.close(function (err) {
     t.notOk(err, 'no error')
     var files = fs.readdirSync(location)
+    fs.writeFileSync('/Users/andris/Desktop/test-before.json', JSON.stringify(files));
     t.ok(files.some(function (f) { return (/\.log$/).test(f) }), 'directory contains log file(s)')
-    t.notOk(files.some(function (f) { return (/\.ldb$/).test(f) }), 'directory does not contain ldb file(s)')
+    t.notOk(files.some(function (f) { return (/^sst_/).test(f) }), 'directory does not contain sst folder(s)')
     leveldown.repair(location, function () {
       files = fs.readdirSync(location)
+      fs.writeFileSync('/Users/andris/Desktop/test-after.json', JSON.stringify(files));
       t.notOk(files.some(function (f) { return (/\.log$/).test(f) }), 'directory does not contain log file(s)')
-      t.ok(files.some(function (f) { return (/\.ldb$/).test(f) }), 'directory contains ldb file(s)')
+      t.ok(files.some(function (f) { return (/^sst_/).test(f) }), 'directory contains sst folder(s)')
       done(false)
     })
   })
