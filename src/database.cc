@@ -195,7 +195,7 @@ NAN_METHOD(Database::Open) {
   );
 
   database->blockCache = leveldb::NewLRUCache(cacheSize);
-  database->filterPolicy = leveldb::NewBloomFilterPolicy(10);
+  database->filterPolicy = leveldb::NewBloomFilterPolicy2(16);
 
   OpenWorker* worker = new OpenWorker(
       database

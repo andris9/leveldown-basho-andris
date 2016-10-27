@@ -36,12 +36,12 @@ OpenWorker::OpenWorker (
   /*
   // use defaults
   options->block_cache            = blockCache;
-  options->filter_policy          = filterPolicy;
   */
+  options->filter_policy          = filterPolicy;
   options->create_if_missing      = createIfMissing;
   options->error_if_exists        = errorIfExists;
   options->compression            = compression
-      ? leveldb::kSnappyCompression
+      ? leveldb::kLZ4Compression
       : leveldb::kNoCompression;
   options->write_buffer_size      = writeBufferSize;
   options->block_size             = blockSize;
