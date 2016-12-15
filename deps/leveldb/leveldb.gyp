@@ -26,9 +26,13 @@
     ]
   , 'conditions': [
         ['OS == "win"', {
+            'conditions': [
+                ['MSVS_VERSION != "2015" and MSVS_VERSION != "2013"', {
+                     'include_dirs': [ 'leveldb-<(ldbversion)/port/win' ]
+                }]
+            ],
             'include_dirs': [
-                'leveldb-<(ldbversion)/port/win'
-              , 'port-libuv/'
+                'port-libuv/'
             ]
           , 'defines': [
                 'LEVELDB_PLATFORM_UV=1'
@@ -61,12 +65,13 @@
                 '-fno-builtin-memcmp'
               , '-fPIC'
             ]
+          , 'cflags': [ '-std=c++0x' ]
+          , 'cflags!': [ '-fno-tree-vrp' ]
         }]
       , ['OS != "win"' and 'OS != "freebsd"', {
             'cflags': [
                 '-Wno-sign-compare'
               , '-Wno-unused-but-set-variable'
-              , '-Wno-ignored-qualifiers'
             ]
         }]
       , ['OS == "linux"', {
@@ -178,8 +183,10 @@
       , 'leveldb-<(ldbversion)/helpers/memenv/memenv.cc'
       , 'leveldb-<(ldbversion)/leveldb_os/hot_backup_stub.cc'
       , 'leveldb-<(ldbversion)/leveldb_os/warming_stub.cc'
-      , 'leveldb-<(ldbversion)/leveldb_os/expiry_os.cc'
+      , 'leveldb-<(ldbversion)/leveldb_os/compile_opt.cc'
+      , 'leveldb-<(ldbversion)/util/expiry_os.cc'
+      , 'leveldb-<(ldbversion)/leveldb_os/expiry_os_stub.cc'
       , 'leveldb-<(ldbversion)/util/lz4.c'
       , 'leveldb-<(ldbversion)/util/throttle.cc'
-   ]
+    ]
 }]}

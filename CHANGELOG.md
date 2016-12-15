@@ -1,7 +1,3 @@
-### 1.5.0-andris.0 October 25 2016
-
- * Switched from LevelDB to Basho-LevelDB OS version
-
 Note that we have filtered out commits related to new tags, updating changelog and we're also not listing any merge commits, i.e. we are only listing things that changed between versions.
 
 ### 1.0.7 May 27 2015

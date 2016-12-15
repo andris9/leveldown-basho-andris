@@ -33,10 +33,7 @@ OpenWorker::OpenWorker (
 ) : AsyncWorker(database, callback)
 {
   options = new leveldb::Options();
-  /*
-  // use defaults
   options->block_cache            = blockCache;
-  */
   options->filter_policy          = filterPolicy;
   options->create_if_missing      = createIfMissing;
   options->error_if_exists        = errorIfExists;
@@ -45,7 +42,6 @@ OpenWorker::OpenWorker (
       : leveldb::kNoCompression;
   options->write_buffer_size      = writeBufferSize;
   options->block_size             = blockSize;
-
   options->max_open_files         = maxOpenFiles;
   options->block_restart_interval = blockRestartInterval;
 };
